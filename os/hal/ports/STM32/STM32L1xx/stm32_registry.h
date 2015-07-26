@@ -77,6 +77,12 @@
 #define STM32_HAS_GPIOG                     FALSE
 #define STM32_HAS_GPIOH                     TRUE
 #define STM32_HAS_GPIOI                     FALSE
+#define STM32_GPIO_EN_MASK                  (RCC_AHBENR_GPIOAEN |           \
+                                             RCC_AHBENR_GPIOBEN |           \
+                                             RCC_AHBENR_GPIOCEN |           \
+                                             RCC_AHBENR_GPIODEN |           \
+                                             RCC_AHBENR_GPIOEEN |           \
+                                             RCC_AHBENR_GPIOHEN)
 
 /* I2C attributes.*/
 #define STM32_HAS_I2C1                      TRUE
@@ -164,6 +170,9 @@
 #define STM32_HAS_TIM17                     FALSE
 #define STM32_HAS_TIM18                     FALSE
 #define STM32_HAS_TIM19                     FALSE
+#define STM32_HAS_TIM20                     FALSE
+#define STM32_HAS_TIM21                     FALSE
+#define STM32_HAS_TIM22                     FALSE
 
 /* USART attributes.*/
 #define STM32_HAS_USART1                    TRUE
@@ -248,6 +257,14 @@
 #define STM32_HAS_GPIOG                     TRUE
 #define STM32_HAS_GPIOH                     TRUE
 #define STM32_HAS_GPIOI                     FALSE
+#define STM32_GPIO_EN_MASK                  (RCC_AHBENR_GPIOAEN |           \
+                                             RCC_AHBENR_GPIOBEN |           \
+                                             RCC_AHBENR_GPIOCEN |           \
+                                             RCC_AHBENR_GPIODEN |           \
+                                             RCC_AHBENR_GPIOEEN |           \
+                                             RCC_AHBENR_GPIOFEN |           \
+                                             RCC_AHBENR_GPIOGEN |           \
+                                             RCC_AHBENR_GPIOHEN)
 
 /* I2C attributes.*/
 #define STM32_HAS_I2C1                      TRUE
@@ -336,6 +353,9 @@
 #define STM32_HAS_TIM17                     FALSE
 #define STM32_HAS_TIM18                     FALSE
 #define STM32_HAS_TIM19                     FALSE
+#define STM32_HAS_TIM20                     FALSE
+#define STM32_HAS_TIM21                     FALSE
+#define STM32_HAS_TIM22                     FALSE
 
 /* USART attributes.*/
 #define STM32_HAS_USART1                    TRUE
