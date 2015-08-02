@@ -74,14 +74,26 @@
 *****************************************************************************
 
 *** 3.1.0 ***
+- HAL: STM32F0xx and STM32L0xx devices now share the same ADCv1 and DMAv1
+       drivers.
 - HAL: Introduced preliminary support for STM32L0xx devices.
+- HAL: New STM32 DMAv1 driver supporting channel selection and fixing the
+       behavior with shared IRQs.
+- HAL: New STM32 ADCv1 driver supporting small STM32 devices.
 - HAL: Introduced support for TIM21 and TIM22 in STM32 ST driver.
 - HAL: Updated STM32F0xx headers to STM32CubeF0 version 1.3.0. Added support
        for STM32F030xC, STM32F070x6, STM32F070xB devices.
+- HAL: Fixed duplicated doxygen tag in STM32F4xx hal_lld.h file (bug #621)
+       (backported to 3.0.1 and 2.6.9).
+- HAL: Fixed STM32F042 registry error (bug #620)(backported to 3.0.1).
+- HAL: Fixed wrong check in canReceive() (bug #619)(backported to 3.0.1
+       and 2.6.9).
+- HAL: Fixed wrong EXTI[18] vector number on STM32F373 (bug #618)(backported
+       to 3.0.1 and 2.6.9).
 - HAL: Fixed wrong check on STM32_LSE_ENABLED definition in STM32L1xx HAL port
-       (bug #617)(backported to 3.0.0 and 2.6.9).
+       (bug #617)(backported to 3.0.1 and 2.6.9).
 - HAL: Fixed rtcConvertDateTimeToFAT() incorrect conversion (bug #615)
-       (backported to 3.0.0).
+       (backported to 3.0.1).
 
 *** 3.0.0 ***
 - NEW: Added an initialization function to the lwIP bindings, now it is

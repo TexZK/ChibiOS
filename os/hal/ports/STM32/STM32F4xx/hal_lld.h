@@ -102,10 +102,6 @@
  * @name    Absolute Maximum Ratings
  * @{
  */
-/**
- * @name    Absolute Maximum Ratings
- * @{
- */
 #if defined(STM32F427xx) || defined(STM32F437xx) ||                         \
     defined(STM32F429xx) || defined(STM32F439xx) ||                         \
     defined(__DOXYGEN__)
@@ -690,7 +686,6 @@
 #if !defined(STM32_PLLI2SR_VALUE) || defined(__DOXYGEN__)
 #define STM32_PLLI2SR_VALUE         5
 #endif
-/** @} */
 
 /**
  * @brief   PLLSAIQ value.
@@ -715,6 +710,7 @@
 #if !defined(STM32_PLLSAIR_VALUE) || defined(__DOXYGEN__)
 #define STM32_PLLSAIR_VALUE         4
 #endif
+/** @} */
 
 /*===========================================================================*/
 /* Derived constants and error checks.                                       */

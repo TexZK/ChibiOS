@@ -66,6 +66,7 @@
 
 /* DMA attributes.*/
 #define STM32_ADVANCED_DMA                  TRUE
+#define STM32_DMA_SUPPORTS_CSELR            TRUE
 #define STM32_DMA1_NUM_CHANNELS             7
 #define STM32_DMA1_CH1_HANDLER              Vector64
 #define STM32_DMA1_CH23_HANDLER             Vector68
@@ -80,7 +81,22 @@
 #define STM32_HAS_ETH                       FALSE
 
 /* EXTI attributes.*/
-#define STM32_EXTI_NUM_CHANNELS             23
+#define STM32_EXTI_NUM_LINES                23
+#define STM32_EXTI_IMR_MASK                 0xFF840000U
+
+#define STM32_EXTI_LINE01_HANDLER           Vector54
+#define STM32_EXTI_LINE23_HANDLER           Vector58
+#define STM32_EXTI_LINE4_15_HANDLER         Vector5C
+#define STM32_EXTI_LINE16_HANDLER           Vector44
+#define STM32_EXTI_LINE171920_HANDLER       Vector48
+#define STM32_EXTI_LINE2122_HANDLER         Vector70
+
+#define STM32_EXTI_LINE01_NUMBER            5
+#define STM32_EXTI_LINE23_NUMBER            6
+#define STM32_EXTI_LINE4_15_NUMBER          7
+#define STM32_EXTI_LINE16_NUMBER            1
+#define STM32_EXTI_LINE171920_NUMBER        2
+#define STM32_EXTI_LINE2122_NUMBER          12
 
 /* GPIO attributes.*/
 #define STM32_HAS_GPIOA                     TRUE
@@ -150,21 +166,6 @@
 #define STM32_HAS_SPI6                      FALSE
 
 /* TIM attributes.*/
-#define STM32_EXTI_NUM_LINES                23
-#define STM32_EXTI_IMR_MASK                 0xFF840000U
-
-#define STM32_EXTI_LINE01_HANDLER           Vector54
-#define STM32_EXTI_LINE23_HANDLER           Vector58
-#define STM32_EXTI_LINE4_15_HANDLER         Vector5C
-#define STM32_EXTI_LINE171920_HANDLER       Vector48
-#define STM32_EXTI_LINE2122_HANDLER         Vector70
-
-#define STM32_EXTI_LINE01_NUMBER            5
-#define STM32_EXTI_LINE23_NUMBER            6
-#define STM32_EXTI_LINE4_15_NUMBER          7
-#define STM32_EXTI_LINE171920_NUMBER        2
-#define STM32_EXTI_LINE2122_NUMBER          12
-
 #define STM32_HAS_TIM2                      TRUE
 #define STM32_TIM2_IS_32BITS                FALSE
 #define STM32_TIM2_CHANNELS                 4
@@ -288,6 +289,7 @@
 
 /* DMA attributes.*/
 #define STM32_ADVANCED_DMA                  TRUE
+#define STM32_DMA_SUPPORTS_CSELR            TRUE
 #define STM32_DMA1_NUM_CHANNELS             7
 #define STM32_DMA1_CH1_HANDLER              Vector64
 #define STM32_DMA1_CH23_HANDLER             Vector68
@@ -308,12 +310,14 @@
 #define STM32_EXTI_LINE01_HANDLER           Vector54
 #define STM32_EXTI_LINE23_HANDLER           Vector58
 #define STM32_EXTI_LINE4_15_HANDLER         Vector5C
+#define STM32_EXTI_LINE16_HANDLER           Vector44
 #define STM32_EXTI_LINE171920_HANDLER       Vector48
 #define STM32_EXTI_LINE2122_HANDLER         Vector70
 
 #define STM32_EXTI_LINE01_NUMBER            5
 #define STM32_EXTI_LINE23_NUMBER            6
 #define STM32_EXTI_LINE4_15_NUMBER          7
+#define STM32_EXTI_LINE16_NUMBER            1
 #define STM32_EXTI_LINE171920_NUMBER        2
 #define STM32_EXTI_LINE2122_NUMBER          12
 
@@ -518,6 +522,7 @@
 
 /* DMA attributes.*/
 #define STM32_ADVANCED_DMA                  TRUE
+#define STM32_DMA_SUPPORTS_CSELR            TRUE
 #define STM32_DMA1_NUM_CHANNELS             7
 #define STM32_DMA1_CH1_HANDLER              Vector64
 #define STM32_DMA1_CH23_HANDLER             Vector68

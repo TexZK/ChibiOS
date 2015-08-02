@@ -116,6 +116,13 @@
 #endif
 
 /**
+ * @brief   ADC1 clock source selection.
+ */
+#if !defined(STM32_ADC_ADC1_CKMODE) || defined(__DOXYGEN__)
+#define STM32_ADC_ADC1_CKMODE               STM32_ADC_CKMODE_ADCCLK
+#endif
+
+/**
  * @brief   ADC1 DMA priority (0..3|lowest..highest).
  */
 #if !defined(STM32_ADC_ADC1_DMA_PRIORITY) || defined(__DOXYGEN__)
@@ -125,8 +132,8 @@
 /**
  * @brief   ADC interrupt priority level setting.
  */
-#if !defined(STM32_ADC_IRQ_PRIORITY) || defined(__DOXYGEN__)
-#define STM32_ADC_IRQ_PRIORITY              2
+#if !defined(STM32_ADC_ADC1_IRQ_PRIORITY) || defined(__DOXYGEN__)
+#define STM32_ADC_ADC1_IRQ_PRIORITY         2
 #endif
 
 /**
@@ -136,15 +143,8 @@
 #define STM32_ADC_ADC1_DMA_IRQ_PRIORITY     2
 #endif
 
-/**
- * @brief   ADC clock source selection.
- */
-#if !defined(STM32_ADC_CKMODE) || defined(__DOXYGEN__)
-#define STM32_ADC_CKMODE                    STM32_ADC_CKMODE_ADCCLK
-#endif
-
 #if (STM32_ADC_SUPPORTS_PRESCALER == TRUE) || defined(__DOXYGEN__)
-/**
+/*
  * @brief   ADC prescaler setting.
  * @note    This setting has effect only in asynchronous clock mode (the
  *          default, @p STM32_ADC_CKMODE_ADCCLK).
@@ -168,9 +168,11 @@
 #error "ADC driver activated but no ADC peripheral assigned"
 #endif
 
+#if STM32_ADC1_IRQ_SHARED_WITH_EXTI == FALSE
 #if STM32_ADC_USE_ADC1 &&                                                   \
-    !OSAL_IRQ_IS_VALID_PRIORITY(STM32_ADC_IRQ_PRIORITY)
+    !OSAL_IRQ_IS_VALID_PRIORITY(STM32_ADC_ADC1_IRQ_PRIORITY)
 #error "Invalid IRQ priority assigned to ADC1"
+#endif
 #endif
 
 #if STM32_ADC_USE_ADC1 &&                                                   \
@@ -211,6 +213,17 @@
 #else
 #error "Invalid value assigned to STM32_ADC_PRESCALER_VALUE"
 #endif
+#endif
+
+/* Check on the presence of the DMA streams settings in mcuconf.h.*/
+#if STM32_ADC_USE_ADC1 && !defined(STM32_ADC_ADC1_DMA_STREAM)
+#error "ADC DMA stream not defined"
+#endif
+
+/* Check on the validity of the assigned DMA channels.*/
+#if STM32_ADC_USE_ADC1 &&                                                   \
+    !STM32_DMA_IS_VALID_ID(STM32_ADC_ADC1_DMA_STREAM, STM32_ADC1_DMA_MSK)
+#error "invalid DMA stream associated to ADC1"
 #endif
 
 #if !defined(STM32_DMA_REQUIRED)
